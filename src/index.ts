@@ -24,7 +24,7 @@ bmx.status()
 
 console.log('\nRing bell.')
 
-const bigTruck = new Truck('Grey', 'HGC-3456F', 200, 4)
+const bigTruck = new Truck('Grey', 'HGC-3456F', 200, 4, 10)
 
 console.log('Created a Truck.\nStatus:\n')
 bigTruck.status()
@@ -35,10 +35,9 @@ console.log('New speed: ' + String(bigTruck.getSpeed()))
 
 console.log('\nBreaking, 10 of power for 10 sec.')
 bigTruck.accelerate(10, 10)
-console.log('New speed: ' + String(bigTruck.getSpeed()))
 
-console.log('\nApplyed air pressure of 10:')
-bigTruck.provideAir(10)
+console.log('\nApplyed air pressure of 10 and Power of 10 for 10s :')
+bigTruck.break(10, 10)
 console.log('New speed: ' + String(bigTruck.getSpeed()))
 
 console.log('\nDone.')

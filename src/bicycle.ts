@@ -26,7 +26,7 @@ class Bicycle extends Vehicle {
   ringBell(): void {
     console.log('ding ding')
   }
-  
+
   // this method displays information about the bike
   status(): void {
     console.log(`

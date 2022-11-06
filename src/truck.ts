@@ -11,16 +11,19 @@ import Vehicle from './vehicle'
 class Truck extends Vehicle {
   // license plate
   private licensePlate: string
+  private airPressure: number
 
   // This gets the variables and the color, licensePlate, and hte max Speed
   constructor(
     color: string,
     licensePlate: string,
     maxSpeed: number,
-    numberTires: number
+    numberTires: number,
+    airPressure: number
   ) {
     super(color, maxSpeed, numberTires)
     this.licensePlate = licensePlate
+    this.airPressure = airPressure
   }
 
   // license plate getter
@@ -33,15 +36,22 @@ class Truck extends Vehicle {
     this.licensePlate = licensePlateNew
   }
 
-  // method that calculates the applied air pressure
-  provideAir(airPressure: number): void {
-    super.setSpeed(super.getSpeed() - airPressure / 2)
-
-    if (super.getSpeed() < 0) {
-      super.setSpeed(0)
-    }
+  // getter for airPressure
+  getAirPressure(): number {
+    return this.airPressure
   }
 
+  // setter for airPressure
+  setAirPressure(airPressure: number): void {
+    this.airPressure = airPressure
+  }
+
+  // break method replacing airBrake
+  break(breakPower: number, breakTime: number): void {
+    super.setSpeed(
+      super.getSpeed() - breakPower * breakTime - this.airPressure * breakTime
+    )
+  }
   // this method displays the status
   status(): void {
     console.log(`
